@@ -1,0 +1,49 @@
+site_name: Hermes Docs
+site_url: https://hermes.zharel.gay/
+
+repo_url: https://github.com/hermesftc/hermes
+repo_name: Hermes Library on GitHub
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: cyan
+    accent: cyan
+  features:
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+
+plugins:
+  - search
+  - social
+
+nav:
+  - Home: index.md
+  - Changes from RoadRunner: changes-from-rr.md
+  - Paths and Trajectories: traj-generation.md
+  - Actions:
+      - Creating Actions: actions/creating-actions.md
+      - Using Actions: actions/using-actions.md
+  - Examples:
+      - Trajectories: 
+          - Trajectory Action Builder: examples/action-builder.md
+          - Trajectory Followers: examples/follower.md
+          - Manual Trajectory Creation: examples/manual-paths.md
+      - Actions:
+          - Custom Actions: examples/custom-actions.md
+          - Actions in TeleOp: examples/teleop-actions.md

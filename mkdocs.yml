@@ -39,6 +39,7 @@ nav:
   - Home:
       - Home: index.md
       - Changes from RoadRunner: changes-from-rr.md
+      - Localizers: localizers.md
       - Paths and Trajectories: traj-generation.md
   - Actions:
       - Creating Actions: actions/creating-actions.md

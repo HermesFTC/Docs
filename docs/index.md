@@ -58,11 +58,11 @@ Simply replace your RoadRunner imports with the following:
 
 And sync your project with Gradle files. 
 
-> [!WARNING]
-> You will need to remove all of the RoadRunner imports from your files
-> and replace them with Hermes's.
-> Once you delete the import statements, IntelliJ and Android Studio
-> can automatically replace them.
+!!! Warning
+    You will need to remove all of the RoadRunner imports from your files
+    and replace them with Hermes's.
+    Once you delete the import statements, IntelliJ and Android Studio
+    can automatically replace them.
 
 ## Tuning 
 
@@ -72,6 +72,25 @@ Future changes to the tuning process will be listed here.
 
 ## KDoc 
 
-[KDoc for Hermes can be found here](http://docs.hermes.zharel.gay/).
+[KDoc for Hermes can be found here](https://docs.hermes.zharel.gay/).
 We recommend checking the KDoc pages, 
 as they include many features not directly discussed here.
+
+## Questions? Feedback?
+
+If you have any questions or feedback about Hermes, 
+feel free to reach out to us through our [Discord server](https://discord.gg/49C5epU22h)!
+
+If you find a bug or have a feature request,
+please open an issue on our [GitHub Issues page](https://github.com/HermesFTC/Hermes/issues);
+if the issue is related to the QuickStart,
+please open an issue on the [QuickStart Issues page](https://github.com/HermesFTC/Quickstart/issues) instead.
+
+## Contributing
+
+If you would like to contribute to Hermes,
+please fork the repository and create a pull request.
+We are open to all contributions,
+and we will review your pull request as soon as possible.
+
+Thank you!

@@ -78,7 +78,7 @@ We recommend using the `trajectoryBuilder` API's
 
 ## Types of `PosePath`
 
-Hermes also includes [three default functions](http://rr.zharel.me/core/com.acmerobotics.roadrunner.paths/-position-path/index.html#1182961430%2FFunctions%2F-431355489)
+Hermes also includes [three default functions](https://docs.hermes.zharel.gay/core/com.acmerobotics.roadrunner.paths/-position-path/index.html#1182961430%2FFunctions%2F-431355489)
 in the `PositionPath` interface to add heading paths,
 which creates `PosePath` objects!
 

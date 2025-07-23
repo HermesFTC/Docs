@@ -25,9 +25,41 @@ Alternatively, the `buildToComposite` method returns a `CompositeTrajectory` obj
 which may be easier to use.
 
 We also offer methods to create and profile paths without a builder, 
-which is documented [here](traj-generation.md).
+which is documented [here](concepts/traj-generation.md).
 
-## 3. Action Improvements
+## 3. Localizers
+
+In RoadRunner 1.0, localizers were part of the QuickStart.
+Hermes includes localizers directly in the library, 
+reducing the need for teams to copy and maintain localizer code from the QuickStart.
+This eliminates the need for teams to copy and maintain localizer code from the QuickStart.
+
+The API for localizers has also changed slightly,
+with the `PARAMS` object being replaced by a fluent API for setting parameters.
+
+The library provides several localizer implementations:
+- **Two-wheel odometry** - For teams using two tracking wheels
+- **Three-wheel odometry** - For teams using three tracking wheels  
+- **Drive encoder localization** - Using drive motor encoders
+- **Pinpoint localization** - For teams using the Pinpoint localization system
+
+See the [Localizers](concepts/localizers.md) page for detailed information.
+
+## 4. Trajectory Following
+
+Hermes introduces a new **Follower** system that separates trajectory following from trajectory creation.
+RoadRunner 1.0 combines these concepts within Actions, 
+while Hermes provides dedicated follower objects for asynchronous trajectory execution.
+
+Key improvements:
+- **Asynchronous following**: Execute trajectories independently of other code
+- **Multiple follower types**: `TimeFollower` (time-based) and `DisplacementFollower` (path-based)
+- **Flexible end conditions**: Customizable conditions for when following should stop
+- **Better disturbance handling**: DisplacementFollower can recover from path deviations
+
+See the [Followers](concepts/followers.md) page for detailed information.
+
+## 5. Action Improvements
 
 Hermes includes multiple improvements to RoadRunner's Action framework.
 Notably, it includes an `ActionRunner` object to manage asynchronous action queues,

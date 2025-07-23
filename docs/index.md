@@ -44,36 +44,16 @@ Where `latest` is replaced by the latest version as displayed above.
 
 Then, sync your project with Gradle files.
 
-## Updating From RoadRunner 1.0
-
-Hermes's API is mostly compatible with RoadRunner code,
-though package locations were changed.
-Simply replace your RoadRunner imports with the following:
-
-```groovy
-    implementation 'me.zharel.hermes:core:<latest>>'
-    implementation 'me.zharel.hermes:actions:<latest>'
-    implementation 'me.zharel.hermes:ftc:<latest>'
-```
-
-And sync your project with Gradle files. 
-
-!!! Warning
-    You will need to remove all of the RoadRunner imports from your files
-    and replace them with Hermes's.
-    Once you delete the import statements, IntelliJ and Android Studio
-    can automatically replace them.
-
 ## Tuning 
 
 If you are using the QuickStart, the tuning process is
 the exact same as the [RoadRunner 1.0 tuning process](https://rr.brott.dev/docs/v1-0/tuning/).
 Future changes to the tuning process will be listed here.
 
-## KDoc 
+## API Documentation 
 
-[KDoc for Hermes can be found here](https://docs.hermes.zharel.gay/).
-We recommend checking the KDoc pages, 
+[API docs for Hermes can be found here](https://docs.hermes.zharel.gay/).
+We recommend checking these docs pages, 
 as they include many features not directly discussed here.
 
 ## Questions? Feedback?

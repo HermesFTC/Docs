@@ -39,11 +39,15 @@ nav:
   - Home:
       - Home: index.md
       - Changes from RoadRunner: changes-from-rr.md
-      - Localizers: localizers.md
-      - Paths and Trajectories: traj-generation.md
-  - Actions:
-      - Creating Actions: actions/creating-actions.md
-      - Using Actions: actions/using-actions.md
+  - Concepts:
+      - Localizers: concepts/localizers.md
+      - Paths and Trajectories: concepts/traj-generation.md
+      - Followers: concepts/followers.md
+      - Custom Followers: concepts/custom-followers.md
+      - End Conditions: concepts/end-conditions.md
+      - Actions:
+          - Creating Actions: actions/creating-actions.md
+          - Using Actions: actions/using-actions.md
   - Examples:
       - Trajectories: 
           - Trajectory Action Builder: examples/action-builder.md

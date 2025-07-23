@@ -1,6 +1,6 @@
 # Manually Making Paths Example
 
-As discussed [earlier](../traj-generation.md),
+As discussed [earlier](../concepts/traj-generation.md),
 making path and trajectory objects yourself 
 offers more customization compared to the 
 `trajectoryBuilder` API.

@@ -6,7 +6,33 @@ Before tuning your robot, you must create a localizer object.
 This guide will not attempt to suggest which localizer you use;
 there are many resources available for that.
 
-## Drive Localizers
+## What is a localizer?
+
+A localizer is an object that provides the robot's position,
+orientation, and velocity in the field.
+
+The most basic localizer is the drive localizer,
+which uses the encoders on your drive motors
+to determine the robot's position and orientation.
+However, many robots use additional sensors,
+such as deadwheel encoders, IMUs, or optical odometry,
+to improve localization accuracy.
+
+The `Localizer` interface in Hermes
+provides a common API for all localizers,
+and has two properties and one method:
+
+- `pose: Pose2d` (mutable): the robot's position and orientation in the field
+- `vel: PoseVelocity2d` (read-only): the robot's velocity in the field
+- `update(): PoseVelocity2d`: updates the localizer's pose and returns the robot's velocity
+
+For Java users, the `pose` property is translated to
+`Pose2d getPose()` and `void setPose(Pose2d pose)` methods,
+and the `vel` property is translated to the `PoseVelocity2d getVel()` method.
+
+## Built-in Localizers
+
+### Drive Localizers
 
 If you are using drive encoders,
 you do not need to make any changes to your
@@ -14,7 +40,7 @@ you do not need to make any changes to your
 as `MecanumDriveLocalizer` and `TankLocalizer`
 are the defaults.
 
-## Two-Deadwheel Localizer
+### Two-Deadwheel Localizer
 
 Use this Localizer if your robot has two deadwheel pods,
 and you are NOT using the Pinpoint localization system.
@@ -47,7 +73,7 @@ chain `.withLocations(<PARALLEL LOCATION>, <PERPENDICULAR LOCATION>)`
 after the call to `withDirections`, before the semicolon.
 Replace the placeholders with your tuned values.
 
-## Three-Deadwheel Localizer
+### Three-Deadwheel Localizer
 
 Use this Localizer if your robot has three deadwheel pods.
 
@@ -78,7 +104,7 @@ chain `.withLocations(<PAR0 LOCATION>, <PAR1 LOCATION>, <PERPENDICULAR LOCATION>
 after the call to `withDirections`, before the semicolon.
 Replace the placeholders with your tuned values.
 
-## Pinpoint Localizer
+### Pinpoint Localizer
 
 Use this Localizer if you are using the goBILDA Pinpoint localization system 
 with two deadwheel pods.
@@ -109,7 +135,7 @@ chain `.withOffsets(<PARALLEL LOCATION>, <PERPENDICULAR LOCATION>)`
 after the call to `withDirections`, before the semicolon.
 Replace the placeholders with your tuned values.
 
-## OTOS Localizer
+### OTOS Localizer
 
 Use this Localizer if you are using the SparkFun Optical Odometry (OTOS) system.
 
@@ -143,3 +169,64 @@ Replace the placeholders with your tuned values.
 
 The x and y offsets will be 0.0 after you tune the heading offset,
 but before you tune the position offset.
+
+## Custom Localizers
+
+If you want to create a custom localizer,
+you can implement the `Localizer` interface 
+and provide your own implementation of the properties and method
+described above:
+
+=== "Kotlin"
+
+    ```kotlin
+    class CustomLocalizer : Localizer {
+        override var pose: Pose2d = Pose2d.zero
+
+        override var vel = PoseVelocity2d.zero
+            private set
+
+        override fun update(): PoseVelocity2d {
+            pose = // calculate new pose
+            vel = // calculate velocity
+            return vel
+        }
+    }
+    ```
+
+    Note that we create both `pose` and `vel` as mutable properties,
+    despite being read-only in the interface. 
+    This means that we can update both the `pose` and `vel` properties
+    internally in the `update` method,
+    but only `pose` can be set externally.
+
+=== "Java"
+
+    ```java
+    public class CustomLocalizer implements Localizer {
+        private Pose2d pose = Pose2d.zero();
+        private PoseVelocity2d vel = PoseVelocity2d.zero();
+
+        @Override
+        public Pose2d getPose() {
+            return pose;
+        }
+
+        @Override
+        public void setPose(Pose2d pose) {
+            this.pose = pose;
+        }
+
+        @Override
+        public PoseVelocity2d getVel() {
+            return vel;
+        }
+
+        @Override
+        public PoseVelocity2d update() {
+            pose = // calculate new pose
+            vel = // calculate velocity
+            return vel;
+        }
+    }
+    ```

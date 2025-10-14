@@ -13,8 +13,8 @@ The QuickStart comes with two types of followers:
 Both types of followers have their benefits, 
 which will eventually be discussed on a page of this guide.
 
-The following (haha) example uses `TimeFollower`, 
-but it can be switched out for `DisplacementFollower` with no other changes to the `OpMode`.
+The following (haha) example uses `DisplacementFollower`, 
+but it can be switched out for `TimeFollower` with no other changes to the `OpMode`.
 
 [All of the `TrajectoryBuilder` functions are documented here](http://rr.zharel.me/core/com.acmerobotics.roadrunner.trajectories/-trajectory-builder/index.html).
 
@@ -28,13 +28,13 @@ but it can be switched out for `DisplacementFollower` with no other changes to t
         private lateinit var follower: Follower
 
         override fun init() {
-            drive = MecanumDrive(hardwareMap, Pose2d(0.0, 0.0, 0.0))
+            drive = MecanumDriveFactory.build(hardwareMap, Pose2d(0.0, 0.0, 0.0))
             val traj: Trajectory<Arclength> = drive.trajectoryBuilder()
                 .forward(10.0)
                 .splineTo(Vector2d(10.0, 10.0), Math.toRadians(90.0))
                 .buildToComposite()
 
-            follower = TimeFollower(traj, drive)
+            follower = DisplacementFollower(traj, drive)
         }
 
         override fun loop() {
@@ -56,13 +56,13 @@ but it can be switched out for `DisplacementFollower` with no other changes to t
 
         @Override
         public void init() {
-            drive = new MecanumDrive(hardwareMap, new Pose2d(0.0, 0.0, 0.0));
+            drive = MecanumDriveFactory.build(hardwareMap, new Pose2d(0.0, 0.0, 0.0));
             Trajectory<Arclength> traj = drive.trajectoryBuilder()
                     .forward(10.0)
                     .splineTo(new Vector2d(10.0, 10.0), Math.toRadians(90.0))
                     .buildToComposite();
 
-            follower = new TimeFollower(traj, drive);
+            follower = new DisplacementFollower(traj, drive);
         }
 
         @Override

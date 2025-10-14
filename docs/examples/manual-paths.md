@@ -28,7 +28,7 @@ and finally turning them into a followable `Trajectory`.
         private lateinit var follower: Follower
 
         override fun init() {
-            drive = MecanumDrive(hardwareMap, Pose2d(0.0, 0.0, 0.0))
+            drive = MecanumDriveFactory.build(hardwareMap, Pose2d(0.0, 0.0, 0.0))
 
             val path1: PosePath = Line(
                 Vector2d(0.0, 0.0),
@@ -68,7 +68,7 @@ and finally turning them into a followable `Trajectory`.
 
         @Override
         public void init() {
-            drive = new MecanumDrive(hardwareMap, new Pose2d(0.0, 0.0, 0.0));
+            drive = MecanumDriveFactory.build(hardwareMap, new Pose2d(0.0, 0.0, 0.0));
 
             PosePath path1 = new Line(
                     new Vector2d(0.0, 0.0),

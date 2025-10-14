@@ -23,7 +23,7 @@ Here is an example of how to use `actionBuilder`:
         lateinit var action: Action
     
         override fun runOpMode() {
-            drive = MecanumDrive(hardwareMap, Pose2d(0.0, 0.0, 0.0))
+            drive = MecanumDriveFactory.build(hardwareMap, Pose2d(0.0, 0.0, 0.0))
             action = drive.actionBuilder()
                 .forward(10.0)
                 .splineTo(Vector2d(10.0, 10.0), Math.toRadians(90.0))
@@ -31,7 +31,7 @@ Here is an example of how to use `actionBuilder`:
     
             waitForStart()
     
-            runBlocking(action)
+            ActionRunner.runBlocking(action)
         }
     }
     ```
@@ -47,7 +47,7 @@ Here is an example of how to use `actionBuilder`:
     
         @Override
         public void runOpMode() throws InterruptedException {
-            drive = new MecanumDrive(hardwareMap, new Pose2d(0.0, 0.0, 0.0));
+            drive = MecanumDriveFactory.build(hardwareMap, new Pose2d(0.0, 0.0, 0.0));
             action = drive.actionBuilder() //since startPose is not provided, it will be Pose2d(0.0, 0.0, 0.0)
                     .forward(10.0)
                     .splineTo(new Vector2d(10.0, 10.0), Math.toRadians(90.0))
@@ -55,7 +55,7 @@ Here is an example of how to use `actionBuilder`:
     
             waitForStart();
     
-            Actions.runBlocking(action);
+            ActionRunner.runBlocking(action);
         }
     }
     ```

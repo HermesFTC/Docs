@@ -58,7 +58,7 @@ Now, let's initialize our `Lift` and `Claw` subsystems.
         override fun init() {
             lift = Lift(hardwareMap)
             claw = Claw(hardwareMap)
-            drive = MecanumDrive(hardwareMap, Pose2d(0.0, 0.0, 0.0))
+            drive = MecanumDriveFactory.build(hardwareMap, Pose2d(0.0, 0.0, 0.0))
         }
 
         override fun loop() {
@@ -80,7 +80,7 @@ Now, let's initialize our `Lift` and `Claw` subsystems.
         public void init() {
             lift = new Lift(hardwareMap);
             claw = new Claw(hardwareMap);
-            drive = new MecanumDrive(hardwareMap, new Pose2d(0.0, 0.0, 0.0));
+            drive = MecanumDriveFactory.build(hardwareMap, new Pose2d(0.0, 0.0, 0.0));
         }
 
         @Override
@@ -210,7 +210,7 @@ Here is the final code for our TeleOp OpMode:
         override fun init() {
             lift = Lift(hardwareMap)
             claw = Claw(hardwareMap)
-            drive = MecanumDrive(hardwareMap, Pose2d(0.0, 0.0, 0.0))
+            drive = MecanumDriveFactory.build(hardwareMap, Pose2d(0.0, 0.0, 0.0))
         }
 
         override fun loop() {
@@ -256,7 +256,7 @@ Here is the final code for our TeleOp OpMode:
         public void init() {
             lift = new Lift(hardwareMap);
             claw = new Claw(hardwareMap);
-            drive = new MecanumDrive(hardwareMap, new Pose2d(0.0, 0.0, 0.0));
+            drive = MecanumDriveFactory.build(hardwareMap, new Pose2d(0.0, 0.0, 0.0));
         }
 
         @Override

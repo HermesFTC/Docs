@@ -21,23 +21,20 @@ FTC Team 8367.
 ## QuickStart
 
 We recommend using the [QuickStart](https://github.com/HermesFTC/Quickstart),
-as it already has `Localizer`, `Drive`, and `Follower` implementations, 
-the required tuning OpMode setup, and some convenient examples!
+as it has all the necessary dependencies and code to get you started.
+The QuickStart also contains some example OpModes to help you
+tune your robot's PID gains, which aren't covered by the automatic tuners.
 
 ## Adding To An Existing Project
 
-If you are installing Hermes to an existing project, 
-we recommend downloading the QuickStart and copying *its* 
-`TeamCode` module package to the `TeamCode` module in your project. 
-
-You will also need to add the library as a dependency in your Gradle scripts.
+You will need to add the library as a dependency in your Gradle scripts.
 In your `build.dependencies.gradle` file, add the following three lines
 to the `dependencies` block:
 
 ```groovy
-    implementation 'me.zharel.hermes:core:<latest>>'
-    implementation 'me.zharel.hermes:actions:<latest>'
-    implementation 'me.zharel.hermes:ftc:<latest>'
+    implementation 'gay.zharel.hermes:core:<latest>>'
+    implementation 'gay.zharel.hermes:actions:<latest>'
+    implementation 'gay.zharel.hermes:ftc:<latest>'
 ```
 
 Where `latest` is replaced by the latest version as displayed above.
@@ -46,9 +43,9 @@ Then, sync your project with Gradle files.
 
 ## Tuning 
 
-If you are using the QuickStart, the tuning process is
-the exact same as the [RoadRunner 1.0 tuning process](https://rr.brott.dev/docs/v1-0/tuning/).
-Future changes to the tuning process will be listed here.
+To tune Hermes, simply connect to your robot's WiFi network and
+go to [192.168.43.1:8080/hermes](192.168.43.1:8080/hermes)
+in your browser!
 
 ## API Documentation 
 

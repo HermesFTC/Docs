@@ -47,6 +47,11 @@ To tune Hermes, simply connect to your robot's WiFi network and
 go to [192.168.43.1:8080/hermes](192.168.43.1:8080/hermes)
 in your browser!
 
+The PID gains are not automatically tuned,
+so you will need to tune them yourself.
+The `ManualFeedbackTuner` OpMode from the QuickStart
+can be used to tune your robot's PID gains using FTC Dashboard.
+
 ## API Documentation 
 
 [API docs for Hermes can be found here](https://docs.hermes.zharel.gay/).

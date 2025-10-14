@@ -2,17 +2,11 @@
 
 Hermes has a few major differences from RoadRunner 1.0.
 
-## 1. Package Layout
+## 1. Automated Tuning 
 
-RoadRunner 1.0 places all classes in the `com.acmerobotics.roadrunner` package.
-Hermes places classes in subpackages of `com.acmerobotics.roadrunner`,
-such as `com.acmerobotics.roadrunner.paths`. 
-This is similar to, but not the same as, the RoadRunner 0.5 package layout.
-
-Unfortunately, due to this change, Hermes is not backwards compatible
-with RoadRunner 1.0 (though migration is very easy!).
-However, IntelliJ IDEA and Android Studio will automatically import classes,
-so you do not need to worry about the package locations.
+Hermes includes an automated tuning system that simplifies the process of tuning your robot's drive parameters.
+Simply connect to your robot's WiFi network and navigate to the tuning page in your web browser.
+The tuning page will guide you through the process of tuning your robot's drive parameters.
 
 ## 2. Trajectory Creation
 

@@ -1,5 +1,5 @@
 # Hermes
-![Maven Central Version](https://img.shields.io/maven-central/v/me.zharel.hermes/core?label=latest%20release&labelColor=darkBlue&color=yellow)
+![Maven Central Version](https://img.shields.io/maven-central/v/gay.zharel.hermes/core?label=latest%20release&labelColor=darkBlue&color=yellow)
 
 Hermes offers a revolutionary motion profiling and planning
 algorithm that builds on RoadRunner from ACME Robotics,
